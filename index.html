@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Cristian Zapata en Nacional</title>
+    <style>
+        body {
+            background-color: #000; /* Negro */
+            color: #fff; /* Blanco */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Para alinear elementos horizontalmente */
+            flex-direction: column; /* Alinear elementos en columna */
+            align-items: center; /* Centrar horizontalmente */
+            justify-content: space-between; /* Distribuir elementos */
+            min-height: 100vh; /* Mínimo 100% de altura de la ventana */
+        }
+        header {
+            background-color: #000; /* Negro */
+            padding: 20px;
+            display: flex; /* Para alinear elementos horizontalmente en el encabezado */
+            align-items: center; /* Centrar verticalmente en el encabezado */
+        }
+        h1 {
+            margin: 0;
+        }
+        .imagen-header {
+            max-width: 50%; /* Ajusta el tamaño de la imagen */
+            margin-left: auto; /* Mueve la imagen hacia la derecha */
+        }
+        .texto-izquierdo {
+            text-align: left; /* Alinea el texto a la izquierda */
+            flex-grow: 1; /* Ocupa el espacio restante en el encabezado */
+        }
+        .contenido {
+            padding: 20px;
+            text-align: left;
+            width: 100%;
+        }
+        .contador {
+            text-align: center;
+            font-size: 24px;
+            background-color: #333; /* Color de fondo */
+            padding: 15px;
+            border-radius: 10px; /* Bordes redondeados */
+            width: 100%;
+        }
+        .contador p {
+            margin: 0;
+            color: #fff; /* Texto blanco */
+        }
+        .video-container {
+            width: 80%; /* Ancho del contenedor de video */
+            margin: 20px auto; /* Centrar el contenedor de video */
+        }
+        video {
+            max-width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="texto-izquierdo">
+            <h1>Basta de Cristian Zapata!</h1>
+            <p>Durante todo el año llevamos fracaso tras fracaso, con un jugador ladron como lo es Cristian, esta pagina se crea con la frustracion de que el brazalete del capitan este siendo usado por un cagon, perdedor y ladron.<br><h3>Fuera de Atletico Nacional!</h3> </p>
+        </div>
+        <img src="CQBXFBIGDRB25FUSKKIK53OYZU.avif" alt="Foto de Cristian Zapata" class="imagen-header">
+    </header>
+    <div class="contenido">
+        
+    </div>
+    <div class="contador">
+        <p>Tiempo Restante del contrato de Cristian Zapata en Atletico Nacional hasta el 1 de diciembre de 2023:</p>
+        <div id="countdown"></div>
+    </div>
+    <div class="video-container">
+        <video controls>
+            <source src="DuY8PAD8W_OyVB_x.mp4" type="video/mp4">
+            Tu navegador no admite el elemento de video.
+        </video>
+    </div>
+
+    <script>
+        // Calcula el tiempo restante hasta el 1 de diciembre de 2023
+        const fechaLimite = new Date('2023-12-01T00:00:00Z').getTime();
+
+        // Actualiza el contador cada segundo
+        const x = setInterval(function() {
+            const ahora = new Date().getTime();
+            const tiempoRestante = fechaLimite - ahora;
+
+            const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+            // Terminar el contador cuando llegue a cero
+            if (tiempoRestante < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Contrato expirado";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+
